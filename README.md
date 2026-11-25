@@ -6,5 +6,4 @@ Single-page resume, published with GitHub Pages.
 - **PDF:** [cv.pdf](cv.pdf)
 
 `index.html` is the page GitHub Pages serves; `cv.html` is the same file under
-its original name. `photo.jpg` is referenced by the page and must stay beside
-it.
+its original name.
