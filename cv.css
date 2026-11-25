@@ -1,0 +1,76 @@
+:root{
+  --mask:#123D2E;      /* soldermask green */
+  --mask-2:#1B5240;
+  --copper:#C47E3F;
+  --copper-soft:#E9C9A6;
+  --paper:#FFFFFF;
+  --silk:#F1F4F2;
+  --ink:#18201C;
+  --muted:#56635C;
+  --rule:#D9E0DC;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#cfd6d2}
+body{font-family:"Golos Text","Noto Sans",sans-serif;color:var(--ink);font-size:8.9pt;line-height:1.42;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:.4mm solid var(--copper);outline-offset:.6mm;border-radius:.6mm}
+.page{width:210mm;height:297mm;background:var(--paper);margin:0 auto;position:relative;overflow:hidden;display:grid;grid-template-columns:64mm 1fr}
+@media screen{.page{margin:10mm auto;box-shadow:0 2px 12px rgba(0,0,0,.15)}}
+
+/* ---------- header band (page 1) ---------- */
+.band{grid-column:1/-1;height:66mm;background:var(--mask);position:relative;color:#fff;display:grid;grid-template-columns:64mm 1fr;align-items:end}
+.band svg.traces{position:absolute;inset:0;width:100%;height:100%}
+.title{position:relative;padding:0 14mm 9mm 4mm;z-index:2}
+.name{font-family:"Unbounded",sans-serif;font-weight:700;font-size:27pt;line-height:1.02;letter-spacing:-.01em}
+.role{margin-top:4mm;font-size:10.5pt;font-weight:500;color:var(--copper-soft);max-width:110mm;line-height:1.35}
+
+/* language toggle (screen only) */
+.langtoggle{position:absolute;top:5.5mm;right:8mm;z-index:3;display:flex;gap:.6mm;font-family:"Unbounded",sans-serif;font-size:7.2pt;font-weight:500}
+.langtoggle a{padding:1mm 2.6mm;border-radius:1mm;color:var(--copper-soft);border:.3mm solid rgba(233,201,166,.42);letter-spacing:.02em}
+.langtoggle a.active{background:var(--copper);color:#1c130a;border-color:var(--copper)}
+@media print{.langtoggle{display:none}}
+
+/* ---------- columns ---------- */
+.side{background:var(--silk);padding:21mm 7mm 10mm 12mm;border-right:.3mm solid var(--rule)}
+.page.two .side{padding-top:14mm}
+.main{padding:9mm 13mm 10mm 8mm}
+.page.two .main{padding-top:14mm}
+
+h2{font-family:"Unbounded",sans-serif;font-weight:500;font-size:10.5pt;color:var(--mask);margin:0 0 2.6mm;display:flex;align-items:center;gap:2.2mm}
+h2::before{content:"";width:2.2mm;height:2.2mm;border-radius:50%;border:.55mm solid var(--copper);flex:none}
+section{margin-bottom:5.4mm}
+.side section{margin-bottom:5mm}
+
+/* contacts */
+.contacts{list-style:none;display:grid;gap:1.5mm;font-size:8.4pt}
+.contacts li span{display:block;color:var(--muted);font-size:7.4pt}
+.contacts a{overflow-wrap:anywhere}
+
+/* skill groups in sidebar */
+.sk h3{font-size:8.4pt;font-weight:600;margin:2.4mm 0 .8mm;color:var(--ink)}
+.sk p{font-size:8pt;color:#333d38;line-height:1.45}
+.edu b{display:block;font-weight:600}
+.edu span{color:var(--muted);font-size:8pt}
+
+/* main */
+.about{font-size:9.3pt;line-height:1.5;max-width:125mm}
+.job{margin-bottom:4.4mm;break-inside:avoid}
+.job-head{display:flex;justify-content:space-between;gap:4mm;align-items:baseline}
+.job h3{font-size:9.6pt;font-weight:700;line-height:1.3}
+.when{font-size:7.9pt;color:var(--muted);white-space:nowrap}
+.org{font-size:8.4pt;color:var(--copper);font-weight:600;margin:.4mm 0 1.4mm}
+.job ul{list-style:none;display:grid;gap:1mm}
+.job li{position:relative;padding-left:4mm}
+.job li::before{content:"";position:absolute;left:.4mm;top:.62em;width:1.6mm;height:.35mm;background:var(--copper)}
+.job li b{font-weight:600}
+
+/* R&D projects: the one rich block */
+.rnd{display:grid;gap:3mm}
+.proj{border-left:.6mm solid var(--mask);padding:.4mm 0 .4mm 3.6mm}
+.proj h3{font-size:9.4pt;font-weight:700}
+.proj p{margin-top:.6mm}
+.tags{margin-top:1.2mm;display:flex;flex-wrap:wrap;gap:1mm}
+.tags i{font-style:normal;font-size:7.4pt;color:var(--mask);background:#E3ECE7;border-radius:.8mm;padding:.2mm 1.4mm}
+
+.foot{position:absolute;right:13mm;bottom:7mm;font-size:7.2pt;color:var(--muted)}
